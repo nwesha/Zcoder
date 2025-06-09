@@ -15,6 +15,11 @@ const getUserProfile = async (req, res) => {
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+     const payload = {
+      ...user.profile,
+      createdAt: user.createdAt,    // <-- bring createdAt down
+    };
     
     return res.status(200).json({
       success: true,

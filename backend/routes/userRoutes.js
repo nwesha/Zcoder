@@ -17,7 +17,6 @@ router.patch('/profile', protect, updateUserProfile);
 router.get('/activity', protect, getUserActivity);
 router.get('/stats', protect, getUserStats);
 router.get('/stats/:id', protect, getUserStatsById);
-// routes/userRoutes.js
 router.get('/solved', protect, getSolvedProblems);
 router.get('/rooms',   protect, getUserRooms);
 module.exports = router;

@@ -164,7 +164,7 @@ export default function ProfilePage() {
                                         )}
                                     </div>
                                     <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                                        @{user?.username} · Joined {new Date(user?.createdAt).toLocaleDateString()}
+                                        @{user?.username} · Joined {new Date(profile?.createdAt).toLocaleDateString()}
                                     </p>
                                     {!isEditing && profile?.bio && (
                                         <p className="mt-3 max-w-2xl text-sm text-gray-700">
