@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Two Sum",
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+    "difficulty": "easy",
+    "tags": ["arrays", "hash-table"],
+    "category": "algorithms",
+    "starterCode": {
+      "javascript": "function twoSum(nums, target) {\n  // your code here\n}",
+      "python": "def two_sum(nums, target):\n    # your code here"
+    },
+    "testCases": [
+      { "input": "[2,7,11,15], 9", "expectedOutput": "[0,1]", "explanation": "2 + 7 = 9" },
+      { "input": "[3,2,4], 6", "expectedOutput": "[1,2]" }
+    ],
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "const map = new Map();\nfor(let i=0;i<nums.length;i++){\n  const comp = target - nums[i];\n  if(map.has(comp)) return [map.get(comp), i];\n  map.set(nums[i], i);\n}",
+        "explanation": "Use a hashmap to track seen values and their indices.",
+        "timeComplexity": "O(n)",
+        "spaceComplexity": "O(n)"
+      }
+    ],
+    "isPublic": true
+  },
+  {
+    "title": "LRU Cache",
+    "description": "Design and implement a data structure for Least Recently Used (LRU) cache. It should support get and put operations in O(1) time.",
+    "difficulty": "medium",
+    "tags": ["design", "hash-table", "linked-list"],
+    "category": "data-structures",
+    "starterCode": {
+      "java": "class LRUCache {\n    public LRUCache(int capacity) {\n        // your code here\n    }\n    public int get(int key) { }\n    public void put(int key, int value) { }\n}"
+    },
+    "testCases": [
+      { "input": "capacity = 2; put(1,1); put(2,2); get(1); put(3,3); get(2);", "expectedOutput": "[null,null,1,null,-1]" }
+    ],
+    "solutions": [],
+    "isPublic": true
+  },
+  {
+    "title": "Find All Employees Under Manager",
+    "description": "Given an employee table (id, name, manager_id), write an SQL query to retrieve the names of all employees who report (directly or indirectly) to a given manager.",
+    "difficulty": "hard",
+    "tags": ["sql", "recursion", "cte"],
+    "category": "databases",
+    "starterCode": {
+      "sql": "-- your SQL query here"
+    },
+    "testCases": [],
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "WITH RECURSIVE subordinates AS (\n  SELECT id, name FROM employee WHERE id = :managerId\n  UNION ALL\n  SELECT e.id, e.name\n  FROM employee e\n  JOIN subordinates s ON e.manager_id = s.id\n)\nSELECT name FROM subordinates WHERE id != :managerId;",
+        "explanation": "Use a recursive CTE to walk the management hierarchy.",
+        "timeComplexity": "Depends on DB optimizer",
+        "spaceComplexity": "O(n)"
+      }
+    ],
+    "isPublic": true
+  },
+  {
+    "title": "Design a URL Shortener",
+    "description": "Design a system like bit.ly which shortens URLs and redirects users to the original URL.",
+    "difficulty": "medium",
+    "tags": ["system-design", "scalability", "database"],
+    "category": "system-design",
+    "starterCode": {},
+    "testCases": [],
+    "solutions": [],
+    "isPublic": true
+  },
+  {
+    "title": "Build a Searchable Todo List (React)",
+    "description": "Create a React component that displays a list of todos and includes a search input to filter them by title in real time.",
+    "difficulty": "easy",
+    "tags": ["react", "javascript", "frontend"],
+    "category": "frontend",
+    "starterCode": {
+      "javascript": "import { useState } from 'react';\n\nfunction TodoList({ todos }) {\n  // your code here\n}"
+    },
+    "testCases": [],
+    "solutions": [],
+    "isPublic": true
+  },
+  {
+    "title": "Implement Rate Limiter Middleware",
+    "description": "Write an Express middleware that limits clients to 100 requests per hour, per IP address.",
+    "difficulty": "medium",
+    "tags": ["nodejs", "express", "middleware"],
+    "category": "backend",
+    "starterCode": {
+      "javascript": "function rateLimiter(req, res, next) {\n  // your code here\n}\n\nmodule.exports = rateLimiter;"
+    },
+    "testCases": [],
+    "solutions": [],
+    "isPublic": true
+  }
+]
