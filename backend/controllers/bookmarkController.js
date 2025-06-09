@@ -1,5 +1,3 @@
-// controllers/bookmarkController.js
-
 const Bookmark = require('../models/Bookmark');
 const Problem = require('../models/Problem');
 const { recordActivity } = require('./activityController');
@@ -65,7 +63,6 @@ const createBookmark = async (req, res) => {
     try {
         const { problemId, ...bookmarkData } = req.body;
 
-        // Check if problem exists
         const problem = await Problem.findById(problemId);
         if (!problem) {
             return res.status(404).json({
@@ -74,7 +71,6 @@ const createBookmark = async (req, res) => {
             });
         }
 
-        // Check if bookmark already exists
         const existingBookmark = await Bookmark.findOne({
             user: req.user.id,
             problem: problemId
@@ -116,7 +112,6 @@ const createBookmark = async (req, res) => {
     }
 };
 
-// Update bookmark
 const updateBookmark = async (req, res) => {
     try {
         const bookmark = await Bookmark.findOne({
@@ -151,7 +146,6 @@ const updateBookmark = async (req, res) => {
     }
 };
 
-// Delete bookmark
 const deleteBookmark = async (req, res) => {
     try {
         const bookmark = await Bookmark.findOne({

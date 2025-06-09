@@ -1,5 +1,3 @@
-// routes/roomRoutes.js
-
 const express = require('express');
 const {
   getRooms,

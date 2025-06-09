@@ -1,5 +1,3 @@
-// routes/problemRoutes.js
-
 const express = require('express');
 const {
   getProblems,

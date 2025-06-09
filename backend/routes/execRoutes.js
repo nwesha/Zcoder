@@ -1,9 +1,7 @@
-// backend/routes/execRoutes.js
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-// map your editor’s language keys → Judge0 language_ids
 const LANGUAGE_ID = {
   javascript: 63,
   python:    71,

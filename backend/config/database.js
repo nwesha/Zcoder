@@ -1,4 +1,3 @@
-
 require('dotenv').config();            // ← make sure this is first
 
 const mongoose = require('mongoose');
@@ -16,7 +15,6 @@ const connectDB = async () => {
   }
 };
 
-// Sanity check
 if (!process.env.JWT_SECRET) {
   console.error('ERROR: JWT_SECRET is not defined in your .env');
   process.exit(1);
@@ -25,5 +23,4 @@ if (!process.env.JWT_SECRET) {
 module.exports = {
   connectDB,
   jwtSecret: process.env.JWT_SECRET,
-  // add more shared config here if needed
 };

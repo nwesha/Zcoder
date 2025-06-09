@@ -1,4 +1,3 @@
-// controllers/userController.js
 const User = require('../models/User');
 const Bookmark = require('../models/Bookmark');
 const Activity = require('../models/Activity');
@@ -80,8 +79,6 @@ const updateUserProfile = async (req, res) => {
 // Get user activity
 const getUserActivity = async (req, res) => {
   try {
-    // In a real app, you would fetch this from an activity collection
-    // For this example, we'll return dummy data
     return res.status(200).json({
       success: true,
       data: {
@@ -113,39 +110,11 @@ const getUserActivity = async (req, res) => {
   }
 };
 
-// Get user stats
-// const getUserStats = async (req, res) => {
-//   try {
-//     const user = await User.findById(req.user.id);
-    
-//     if (!user) {
-//       return res.status(404).json({ success: false, message: 'User not found' });
-//     }
-    
-//     // Calculate stats (in a real app, you might query related collections)
-//     return res.status(200).json({
-//       success: true,
-//       data: {
-//         stats: {
-//           totalProblems: user.solvedProblems?.length || 0,
-//           totalBookmarks: user.bookmarkedProblems?.length || 0,
-//           totalRooms: user.recentRooms?.length || 0,
-//           totalCollaborations: 5 // Dummy value
-//         }
-//       }
-//     });
-//   } catch (error) {
-//     console.error('Get stats error:', error);
-//     return res.status(500).json({ success: false, message: 'Server error' });
-//   }
-// };
-
 exports.getUserStats = async (req, res) => {
   const userId = req.user.id;
   const totalBookmarks = await Bookmark.countDocuments({ user: userId });
   const totalProblems = await Bookmark.countDocuments({ user: userId, progress: 'completed' });
   const totalRooms = await Room.countDocuments({ 'participants.user': userId });
-  // you can count collaborations however you define them—for example, chat messages
   const totalCollaborations = await Activity.countDocuments({ user: userId, type: 'chat' });
   res.json({
     success: true,
@@ -198,10 +167,6 @@ exports.getUserRooms = async (req, res) => {
   res.json({ success: true, data: { recentRooms: rooms } });
 };
 
-/**
- * GET /api/users/stats
- * Returns counts of solved problems, bookmarks, rooms joined, collaborations
- */
 const getUserStats = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -222,10 +187,6 @@ const getUserStats = async (req, res) => {
   }
 };
 
-/**
- * GET /api/users/rooms
- * Returns recent rooms the user has joined
- */
 const getUserRooms = async (req, res) => {
   try {
     const rooms = await Room.find({ 'participants.user': req.user.id })

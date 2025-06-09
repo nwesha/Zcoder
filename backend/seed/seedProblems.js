@@ -1,4 +1,3 @@
-// seed/seedProblems.js
 const path = require('path');
 require('dotenv').config({
   path: path.resolve(__dirname, '../.env')
@@ -15,7 +14,7 @@ async function seed() {
       useUnifiedTopology: true,
     });
 
-    console.log('🔌 Connected to DB');
+    console.log('Connected to DB');
 
     await Problem.deleteMany({});
     console.log('Cleared old problems');
@@ -24,7 +23,6 @@ async function seed() {
 
     const docs = problems.map(p => ({
      ...p,
-    // must use `new` with the ObjectId class
      author: new mongoose.Types.ObjectId(dummyAuthorId),
    }));
 

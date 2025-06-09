@@ -1,5 +1,3 @@
-// pages/rooms/[id].js
-
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout/Layout';

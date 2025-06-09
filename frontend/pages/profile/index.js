@@ -1,4 +1,3 @@
-// pages/profile/index.js
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';

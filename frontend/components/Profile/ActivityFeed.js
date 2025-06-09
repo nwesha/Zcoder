@@ -1,5 +1,3 @@
-// components/Profile/ActivityFeed.js
-
 import Link from 'next/link';
 import {
   CodeBracketIcon,

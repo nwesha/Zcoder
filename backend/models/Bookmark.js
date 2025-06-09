@@ -1,4 +1,3 @@
-// models/Bookmark.js
 const mongoose = require('mongoose');
 
 const bookmarkSchema = new mongoose.Schema({

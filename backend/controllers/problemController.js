@@ -1,5 +1,3 @@
-// controllers/problemController.js
-
 const Problem = require('../models/Problem');
 const Bookmark = require('../models/Bookmark');
 const { recordActivity } = require('./activityController');

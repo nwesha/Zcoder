@@ -78,7 +78,6 @@ export default function CodeEditor({
 
   return (
     <div className="relative w-full flex flex-col" style={{ height }}>
-      {/* RUN BUTTON */}
       {enableRun && (
         <div className="flex justify-end mb-1 z-10">
           <button
@@ -145,12 +144,10 @@ export default function CodeEditor({
         </div>
       )}
 
-      {/* LANGUAGE BADGE (moved left so it never covers the run button) */}
       <div className="absolute top-2 left-1 bg-gray-800 text-white px-2 py-1 rounded text-xs font-mono">
         {language.toUpperCase()}
       </div>
 
-      {/* LINE COUNT */}
       <div className="absolute bottom-2 right-2 flex items-center space-x-2 text-xs">
         <div className="bg-gray-800 text-white px-2 py-1 rounded">
           Lines: {(value || '').split('\n').length}

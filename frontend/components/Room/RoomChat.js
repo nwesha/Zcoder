@@ -1,5 +1,3 @@
-// components/Room.RoomChat.js
-
 import { useState, useRef, useEffect } from 'react';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 

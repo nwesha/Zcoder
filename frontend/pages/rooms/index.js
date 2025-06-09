@@ -1,5 +1,3 @@
-//pages/rooms/index.js
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout/Layout';
