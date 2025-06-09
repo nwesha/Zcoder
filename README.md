@@ -116,8 +116,13 @@ This will populate the database with the problem set.
 ## 🐛 Troubleshooting
 
 * Make sure MongoDB is running locally.
-* Ensure the same user ID is used in all seed entries.
 * Ensure your environment variables are correctly set.
+
+---
+
+## 🚧 Features Under Development
+
+Please note that ZCoder is an evolving project and certain features are still in progress. 
 
 ---
 
