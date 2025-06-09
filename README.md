@@ -1,30 +1,38 @@
-# ZCoder - Collaborative Coding Platform
+# ZCoder Setup Guide
 
-ZCoder is a full-stack web application designed to help users practice coding problems, track progress, and compete in real-time rooms. Built with a MERN (MongoDB, Express, React/Next.js, Node.js) stack.
+This README will guide you through setting up the **ZCoder** full-stack application locally. It covers installation, environment setup, and database seeding.
 
 ---
 
-## 🔧 Setup Instructions
+## 🔧 Project Structure
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/nwesha/Zcoder-project.git
-cd zcoder-project
+```
+zcoder/
+├── backend/
+└── frontend/
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Getting Started
 
-### Frontend Setup
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/nwesha/Zcoder-project.git
+cd Zcoder-project
+```
+
+### 2. Install dependencies
+
+#### Frontend
 
 ```bash
 cd frontend
 npm install
 ```
 
-### Backend Setup
+#### Backend
 
 ```bash
 cd ../backend
@@ -33,22 +41,18 @@ npm install
 
 ---
 
-## 📁 Environment Variables
+## 🔑 Environment Variables
 
 ### Frontend (`frontend/.env.local`)
 
-Create a file named `.env.local` in the `frontend` directory and add the following:
-
-```env
+```
 NEXT_PUBLIC_API_URL=http://localhost:5000
 NEXT_PUBLIC_WS_URL=ws://localhost:5000
 ```
 
 ### Backend (`backend/.env`)
 
-Create a file named `.env` in the `backend` directory and add the following:
-
-```env
+```
 NODE_ENV=development
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/zcoder
@@ -60,63 +64,79 @@ JUDGE0_API_KEY=ae8d8b5577mshab5147292f2e9a0p120674jsnf749e7d5e79f
 
 ---
 
-## 🗃️ Seeding Problems into the Database
+## 🌱 Seeding the Database with Problems
 
-After setting up MongoDB and environment variables:
+### Step 1: Create a User
+
+To seed problems, you must have **one user already created in the database**. You can do this by registering a user via the frontend (localhost:3000).
+
+### Step 2: Get the User ID
+
+After registering, copy the user's `_id` from the database (e.g., via MongoDB Compass or Mongo shell).
+
+### Step 3: Update the Seed File
+
+Navigate to `backend/seed/problems.json` and **replace all instances** of the placeholder `"user": "YOUR_USER_ID_HERE"` with your actual user ID.
+
+Example:
+
+```json
+{
+  "title": "Two Sum",
+  "difficulty": "Easy",
+  "user": "665f6c8e1234567890abcdef",
+  ...
+}
+```
+
+### Step 4: Run the Seeder
+
+From the `backend/` directory:
 
 ```bash
-cd backend
 node seed:problems
 ```
 
-This will populate the database with coding problems from the JSON file located in `backend/seed/problems.json`.
+This will populate the database with the problem set.
 
 ---
 
-## 🏃 Running the App
+## 🧠 Running the Project
 
-### Start Backend Server
-
-```bash
-cd backend
-npm run dev
-```
-
-### Start Frontend App
+### Frontend
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-The application should now be running at `http://localhost:3000`.
+Runs the Next.js app on: [http://localhost:3000](http://localhost:3000)
+
+### Backend
+
+```bash
+cd backend
+npm run dev
+```
+
+Runs the Express/MongoDB API server on: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 🔗 Useful Links
+## 🐛 Troubleshooting
 
-* Frontend: [http://localhost:3000](http://localhost:3000)
-* Backend API: [http://localhost:5000](http://localhost:5000)
-* WebSocket: `ws://localhost:5000`
-
----
-
-## 🛠 Technologies Used
-
-* **Frontend:** Next.js, React, Tailwind CSS
-* **Backend:** Node.js, Express.js, MongoDB
-* **Authentication:** JWT (Access + Refresh tokens)
-* **Real-Time:** WebSockets
-* **Code Execution:** Judge0 API
+* Make sure MongoDB is running locally.
+* Ensure the same user ID is used in all seed entries.
+* Ensure your environment variables are correctly set.
 
 ---
 
-## 🤝 Contributing
+## 📬 Contributions
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Feel free to fork, submit issues, or pull requests to improve the project!
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License
