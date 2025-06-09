@@ -12,25 +12,7 @@ const LANGUAGE_ID = {
   html:      216,
   css:       186,
 };
-(async () => {
-  try {
-    const resp = await axios.post(
-      'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true',
-      { source_code: 'print("hello, world")', language_id: 71 }, // Python
-      {
-        headers: {
-          'X-RapidAPI-Host':  'judge0-ce.p.rapidapi.com',
-          'X-RapidAPI-Key':   process.env.JUDGE0_API_KEY,
-          'Content-Type':     'application/json'
-        }
-      }
-    );
-    console.log('✅ Judge0 test OK:', resp.data.status.description, 
-                '\nstdout:', resp.data.stdout);
-  } catch (e) {
-    console.error('⛔ Judge0 test failed:', e.response?.status, e.response?.data || e.message);
-  }
-})();
+
 router.post('/', async (req, res) => {
   const { code, language } = req.body;
   const language_id = LANGUAGE_ID[language] || LANGUAGE_ID.javascript;
