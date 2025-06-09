@@ -29,6 +29,8 @@ cd Zcoder-project
 
 ```bash
 cd frontend
+npm install react
+npm install @tanstack/react-query
 npm install
 ```
 
