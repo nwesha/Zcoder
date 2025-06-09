@@ -18,7 +18,7 @@ async function seed() {
     console.log('🔌 Connected to DB');
 
     await Problem.deleteMany({});
-    console.log('🗑️  Cleared old problems');
+    console.log('Cleared old problems');
 
     const dummyAuthorId = '684449a42706f0f499321683'; // replace with a real user ID
 
@@ -29,12 +29,12 @@ async function seed() {
    }));
 
     await Problem.insertMany(docs);
-    console.log(`✅ Seeded ${docs.length} problems`);
+    console.log(`Seeded ${docs.length} problems`);
   } catch (err) {
-    console.error('❌ Seed error:', err);
+    console.error('Seed error:', err);
   } finally {
     await mongoose.disconnect();
-    console.log('🔌 Disconnected');
+    console.log('Disconnected');
   }
 }
 
