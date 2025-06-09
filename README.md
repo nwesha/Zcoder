@@ -64,43 +64,6 @@ JUDGE0_API_KEY=ae8d8b5577mshab5147292f2e9a0p120674jsnf749e7d5e79f
 
 ---
 
-## 🌱 Seeding the Database with Problems
-
-### Step 1: Create a User
-
-To seed problems, you must have **one user already created in the database**. You can do this by registering a user via the frontend (localhost:3000).
-
-### Step 2: Get the User ID
-
-After registering, copy the user's `_id` from the database (e.g., via MongoDB Compass or Mongo shell).
-
-### Step 3: Update the Seed File
-
-Navigate to `backend/seed/problems.json` and **replace all instances** of the placeholder `"user": "YOUR_USER_ID_HERE"` with your actual user ID.
-
-Example:
-
-```json
-{
-  "title": "Two Sum",
-  "difficulty": "Easy",
-  "user": "665f6c8e1234567890abcdef",
-  ...
-}
-```
-
-### Step 4: Run the Seeder
-
-From the `backend/` directory:
-
-```bash
-node seed:problems
-```
-
-This will populate the database with the problem set.
-
----
-
 ## 🧠 Running the Project
 
 ### Frontend
@@ -120,6 +83,33 @@ npm run dev
 ```
 
 Runs the Express/MongoDB API server on: [http://localhost:5000](http://localhost:5000)
+
+---
+
+## 🌱 Seeding the Database with Problems
+
+### Step 1: Create a User
+
+To seed problems, you must have **one user already created in the database**. You can do this by registering a user via the frontend (localhost:3000).
+
+### Step 2: Get the User ID
+
+After registering, copy the user's `_id` from the database (e.g., via MongoDB Compass or Mongo shell).
+
+### Step 3: Update the Seed File
+
+Navigate to `backend/seed/seedProblems.js` and **replace  dummyAuthorId** with your actual user ID.
+
+
+### Step 4: Run the Seeder
+
+From the `backend/` directory:
+
+```bash
+node seed:problems
+```
+
+This will populate the database with the problem set.
 
 ---
 
