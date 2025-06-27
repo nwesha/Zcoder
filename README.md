@@ -81,7 +81,7 @@ Runs the Next.js app on: [http://localhost:3000](http://localhost:3000)
 
 ```bash
 cd backend
-npm run dev
+node server.js
 ```
 
 Runs the Express/MongoDB API server on: [http://localhost:5000](http://localhost:5000)
