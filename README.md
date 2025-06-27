@@ -19,8 +19,8 @@ zcoder/
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/nwesha/Zcoder-project.git
-cd Zcoder-project
+git clone https://github.com/nwesha/Zcoder.git
+cd Zcoder
 ```
 
 ### 2. Install dependencies
@@ -29,7 +29,6 @@ cd Zcoder-project
 
 ```bash
 cd frontend
-npm install react
 npm install @tanstack/react-query
 npm install
 ```
